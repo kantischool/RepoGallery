@@ -1,9 +1,8 @@
 package com.findrepo.datasource
 
-import com.findrepo.api.ResponseState
-import com.findrepo.model.BaseResponse
+import com.findrepo.model.RepositoryListResponse
 import retrofit2.Response
 
 interface AppDataSource {
-    suspend fun fetchRepositories(hashMap: HashMap<String, Any>): Response<Any>
+    suspend fun fetchRepositories(hashMap: HashMap<String, Any>): Response<RepositoryListResponse>
 }

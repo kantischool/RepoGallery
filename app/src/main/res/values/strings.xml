@@ -2,4 +2,6 @@
     <string name="app_name">RepoGallery</string>
     <string name="desc_stars">"★ Stars: "</string>
     <string name="desc_folks">"Folks: "</string>
+    <string name="desc_repositories">Repositories</string>
+    <string name="desc_search">search</string>
 </resources>
