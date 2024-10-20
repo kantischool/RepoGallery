@@ -1,9 +1,9 @@
 package com.findrepo.repogallery
 
 import android.app.Application
-import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 
-@AndroidEntryPoint
+@HiltAndroidApp
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()

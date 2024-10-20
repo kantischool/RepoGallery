@@ -9,11 +9,11 @@ import retrofit2.Response
 
 class ApiRequest @Inject constructor() {
     suspend fun <T : Any> makeRequest(
-        call: suspend () -> Response<BaseResponse<T>>
+        call: suspend () -> Response<T>
     ) = createResource(call)
 
     private suspend fun <T : Any> createResource(
-        call: suspend () -> Response<BaseResponse<T>>,
+        call: suspend () -> Response<T>,
     ): ResponseState<T> {
         val responseState: ResponseState<T> = try {
             val response = call.invoke()
@@ -26,8 +26,7 @@ class ApiRequest @Inject constructor() {
                 ResponseState.Success(
                     status = Status.SUCCESS,
                     responseCode = response.code(),
-                    message = response.body()?.message,
-                    data = response.body()?.data,
+                    data = response.body(),
 //                    header = headerResponse,
                 )
             } else {
