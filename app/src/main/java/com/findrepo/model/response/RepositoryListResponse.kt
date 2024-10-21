@@ -1,5 +1,6 @@
-package com.findrepo.model
+package com.findrepo.model.response
 
+import com.findrepo.model.Repository
 import com.squareup.moshi.Json
 
 data class RepositoryListResponse(

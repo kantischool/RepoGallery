@@ -104,4 +104,7 @@ dependencies {
     // Moshi
     implementation(libs.moshi.kotlin)
     implementation(libs.converter.moshi)
+
+    // Coil
+    implementation(libs.coil.compose)
 }

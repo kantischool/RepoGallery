@@ -24,15 +24,14 @@ fun RepositoryItem(
     onRepositoryClick: (Repository) -> Unit = {},
 ) {
     Card(
-        modifier = Modifier.padding(bottom = 8.dp),
+        modifier = Modifier
+            .padding(bottom = 8.dp)
+            .clickable { onRepositoryClick.invoke(repo) },
         shape = RoundedCornerShape(8.dp),
     ) {
         Column(
             modifier = Modifier
                 .padding(16.dp)
-                .clickable {
-                    onRepositoryClick.invoke(repo)
-                }
         ) {
             Column {
                 AppTextTitle(
@@ -48,7 +47,7 @@ fun RepositoryItem(
 
                 Row {
                     AppTextSmall(
-                        text = stringResource(R.string.desc_stars) +repo.stargazersCount.toString()
+                        text = stringResource(R.string.desc_stars) + repo.stargazersCount.toString()
                     )
 
                     Spacer(modifier = Modifier.weight(1f))

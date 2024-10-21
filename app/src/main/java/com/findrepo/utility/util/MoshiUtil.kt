@@ -16,3 +16,11 @@ fun <T> String?.parseStringToJSON(clazz: Class<T>): T? {
     }
     return json
 }
+
+fun <T> T?.parseJSONToString(clazz: Class<T>): String? {
+    val moshi = Moshi.Builder()
+        .add(KotlinJsonAdapterFactory())
+        .build()
+    val jsonAdapter = moshi.adapter(clazz)
+    return jsonAdapter.toJson(this)
+}

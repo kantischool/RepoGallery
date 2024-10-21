@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="154dp"
+    android:height="154dp"
+    android:viewportWidth="154"
+    android:viewportHeight="154">
+    <path
+        android:fillAlpha="0.1"
+        android:fillColor="#202020"
+        android:pathData="M0,0h154v154h-154z"
+        android:strokeAlpha="0.1" />
+    <group>
+        <clip-path android:pathData="M36,36h82v82h-82z" />
+        <path
+            android:fillAlpha="0.3"
+            android:fillColor="#202020"
+            android:pathData="M111.82,94.21C107.48,89.48 102.21,85.7 96.34,83.11C90.47,80.53 84.14,79.2 77.73,79.2C71.33,79.2 64.99,80.53 59.13,83.11C53.26,85.7 47.99,89.48 43.64,94.21C42.97,94.95 42.6,95.92 42.59,96.93V113.24C42.6,114.32 43.04,115.34 43.8,116.09C44.55,116.85 45.58,117.27 46.64,117.27H108.82C109.9,117.27 110.93,116.84 111.69,116.07C112.45,115.31 112.88,114.27 112.88,113.19V96.87C112.86,95.89 112.48,94.94 111.82,94.21Z"
+            android:strokeAlpha="0.3" />
+        <path
+            android:fillAlpha="0.3"
+            android:fillColor="#202020"
+            android:pathData="M77.37,74.07C87.68,74.07 96.04,65.55 96.04,55.04C96.04,44.52 87.68,36 77.37,36C67.06,36 58.7,44.52 58.7,55.04C58.7,65.55 67.06,74.07 77.37,74.07Z"
+            android:strokeAlpha="0.3" />
+    </group>
+</vector>

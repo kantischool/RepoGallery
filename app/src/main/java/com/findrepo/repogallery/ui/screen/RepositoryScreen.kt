@@ -34,7 +34,9 @@ import com.findrepo.repogallery.viewmodel.RepositoryViewModel
 import com.findrepo.state.RepositoryScreenUiEvent
 
 @Composable
-fun RepositoryScreen() {
+fun RepositoryScreen(
+    onNavigateToRepoDetail: (Repository) -> Unit = {},
+) {
 
     val viewModel = hiltViewModel<RepositoryViewModel>()
     val viewState by viewModel.consumableState().collectAsState()
@@ -49,8 +51,8 @@ fun RepositoryScreen() {
 
     RepositoryContent(
         repositories = { repositories },
-        onRepositoryClick = { },
-        query = { query.toString() },
+        onRepositoryClick = { onNavigateToRepoDetail.invoke(it) },
+        query = { query },
         onSearchRepo = { viewModel.onEvent(RepositoryScreenUiEvent.SearchRepo) },
         onCallApiAgain = { viewModel.onEvent(RepositoryScreenUiEvent.CallApiAgain) },
         onChangeQuery = { viewModel.onEvent(RepositoryScreenUiEvent.ChangeQuery(it)) },

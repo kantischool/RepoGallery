@@ -30,12 +30,13 @@ class RepositoryViewModel @Inject constructor(
 
     private var page: Int = 1
     private var apiCount: Int = 0
+
     init {
         fetchRepository("kotlin")
     }
 
     fun onEvent(event: RepositoryScreenUiEvent) {
-        when(event) {
+        when (event) {
             is RepositoryScreenUiEvent.RepoClick -> {
 
             }
@@ -47,13 +48,17 @@ class RepositoryViewModel @Inject constructor(
                     )
                 }
             }
+
             is RepositoryScreenUiEvent.SearchRepo -> {
                 page = 1
+                uiState.update {
+                    it.copy(repositories = emptyList())
+                }
                 fetchRepository(uiState.value.query)
             }
 
             is RepositoryScreenUiEvent.CallApiAgain -> {
-                if (apiCount == 0){
+                if (apiCount == 0) {
                     apiCount++
                 } else {
                     uiState.update { it.copy(isCallApiAgain = true) }
@@ -85,11 +90,11 @@ class RepositoryViewModel @Inject constructor(
                 }
 
                 is ResponseState.Success -> {
-                  val list  = if (uiState.value.repositories.isNotEmpty()) {
-                      uiState.value.repositories + (response.data?.items ?: emptyList())
-                  } else {
-                      response.data?.items ?: emptyList()
-                  }
+                    val list = if (uiState.value.repositories.isNotEmpty()) {
+                        uiState.value.repositories + (response.data?.items ?: emptyList())
+                    } else {
+                        response.data?.items ?: emptyList()
+                    }
                     uiState.update {
                         it.copy(
                             isLoading = false,
