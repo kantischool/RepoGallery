@@ -1,4 +1,4 @@
-package com.findrepo.data
+package com.findrepo.repogallery.data
 
 object AppConstant {
     const val BASE_URL = "https://api.github.com/"

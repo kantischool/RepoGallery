@@ -2,7 +2,7 @@ package com.findrepo.repogallery.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.findrepo.api.ResponseState
+import com.findrepo.repogallery.api.ResponseState
 import com.findrepo.repogallery.repository.AppRepository
 import com.findrepo.state.RepositoryDetailState
 import com.findrepo.state.RepositoryDetailUiEvent
@@ -33,9 +33,6 @@ class RepositoryDetailViewModel @Inject constructor(
                 contributors()
             }
         }
-    }
-
-    init {
     }
 
     private fun contributors() {

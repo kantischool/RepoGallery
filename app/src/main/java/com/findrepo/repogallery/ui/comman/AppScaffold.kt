@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.findrepo.repogallery.ui.theme.colorBackground
-import com.findrepo.repogallery.ui.theme.colorPrimary
+import com.findrepo.repogallery.ui.theme.colorBlack
 import com.findrepo.repogallery.ui.theme.colorSecondary
 
 @Composable
@@ -30,15 +30,9 @@ fun AppScaffold(
     toolbarBackgroundColor: Color = colorBackground,
     @DrawableRes navigationIconResId: Int = 0,
     onNavigationIconClick: () -> Unit = {},
-    showNotificationIcon: Boolean = true,
-    notificationCount: Int = 0,
-    onNotificationClick: () -> Unit = {},
-    showOtherAction: Boolean = false,
     showNavigationIcon: Boolean = true,
-    @DrawableRes otherActionIconResId: Int = 0,
-    onOtherActionClick: () -> Unit = {},
-    iconColor: Color = colorPrimary,
-    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
+    iconColor: Color = colorBlack,
+    snackBarHostState: SnackbarHostState = remember { SnackbarHostState() },
     content: @Composable (PaddingValues) -> Unit,
 ) {
     Scaffold(
@@ -53,15 +47,9 @@ fun AppScaffold(
                     title = title,
                     titleColor = titleColor,
                     backgroundColor = toolbarBackgroundColor,
-                    notificationCount = notificationCount,
                     navigationIconResId = navigationIconResId,
                     showNavigationIcon = showNavigationIcon,
                     onNavigationIconClick = onNavigationIconClick,
-                    onNotificationClick = onNotificationClick,
-                    showNotificationIcon = showNotificationIcon,
-                    showOtherAction = showOtherAction,
-                    otherActionIconResId = otherActionIconResId,
-                    onOtherActionClick = onOtherActionClick,
                     iconColor = iconColor,
                 )
             }
@@ -74,11 +62,11 @@ fun AppScaffold(
                 contentAlignment = Alignment.TopCenter,
             ) {
                 SnackbarHost(
-                    hostState = snackbarHostState,
-                    snackbar = { snackbarData ->
+                    hostState = snackBarHostState,
+                    snackbar = { snackBarData ->
                         AppSnackBar(
                             modifier = Modifier.padding(12.dp),
-                            snackbarData = snackbarData,
+                            snackBarData = snackBarData,
                         )
                     }
                 )

@@ -1,8 +1,6 @@
-package com.findrepo.api
+package com.findrepo.repogallery.api
 
-import com.findrepo.model.BaseResponse
-import com.findrepo.model.ErrorResponse
-import com.findrepo.model.HeaderResponse
+import com.findrepo.repogallery.model.ErrorResponse
 import com.findrepo.utility.util.parseStringToJSON
 import javax.inject.Inject
 import retrofit2.Response
@@ -19,15 +17,10 @@ class ApiRequest @Inject constructor() {
             val response = call.invoke()
 
             if (response.isSuccessful) {
-//                val headerResponse =
-//                    response.headers().toMap().mapKeys { it.key.lowercase() }
-//                        .parseMapToJSON(HeaderResponse::class.java)
-
                 ResponseState.Success(
                     status = Status.SUCCESS,
                     responseCode = response.code(),
                     data = response.body(),
-//                    header = headerResponse,
                 )
             } else {
                 val errorBody: String? = response.errorBody()?.string()

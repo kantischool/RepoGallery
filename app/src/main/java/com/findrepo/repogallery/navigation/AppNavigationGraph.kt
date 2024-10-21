@@ -1,4 +1,4 @@
-package com.findrepo.navigation
+package com.findrepo.repogallery.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
@@ -6,10 +6,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.findrepo.model.Repository
-import com.findrepo.navigation.NavGraphArgument.HTML_DATA
-import com.findrepo.navigation.NavGraphArgument.REPOSITORY
-import com.findrepo.navigation.NavGraphArgument.REPO_NAME
+import com.findrepo.repogallery.model.item.Repository
+import com.findrepo.repogallery.navigation.NavGraphArgument.HTML_DATA
+import com.findrepo.repogallery.navigation.NavGraphArgument.REPOSITORY
+import com.findrepo.repogallery.navigation.NavGraphArgument.REPO_NAME
 import com.findrepo.repogallery.ui.screen.RepositoryDetailScreen
 import com.findrepo.repogallery.ui.screen.RepositoryScreen
 import com.findrepo.repogallery.ui.screen.WebViewScreen

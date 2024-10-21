@@ -22,7 +22,7 @@ import com.findrepo.repogallery.ui.theme.colorWhite
 @Composable
 fun AppSnackBar(
     modifier: Modifier = Modifier,
-    snackbarData: SnackbarData,
+    snackBarData: SnackbarData,
     shape: Shape = SnackbarDefaults.shape,
     containerColor: Color = SnackbarDefaults.color,
     contentColor: Color = SnackbarDefaults.contentColor,
@@ -38,7 +38,7 @@ fun AppSnackBar(
         dismissActionContentColor = dismissActionContentColor,
     ) {
         Text(
-            text = snackbarData.visuals.message,
+            text = snackBarData.visuals.message,
             color = colorWhite,
             style = MaterialTheme.typography.bodySmall,
             fontSize = TextUnit(16f, TextUnitType.Sp),

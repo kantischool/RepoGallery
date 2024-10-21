@@ -22,7 +22,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.findrepo.model.Repository
+import com.findrepo.repogallery.model.item.Repository
 import com.findrepo.repogallery.R
 import com.findrepo.repogallery.ui.comman.AppFloatingActionButton
 import com.findrepo.repogallery.ui.comman.AppLoader
@@ -92,7 +92,7 @@ fun RepositoryContent(
     AppScaffold(
         title = stringResource(R.string.desc_repositories),
         showNavigationIcon = false,
-        snackbarHostState = snackBarHostState
+        snackBarHostState = snackBarHostState
     ) { contentPadding ->
         if (isLoading()) {
             AppLoader()

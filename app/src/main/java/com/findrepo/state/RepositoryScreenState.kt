@@ -1,6 +1,6 @@
 package com.findrepo.state
 
-import com.findrepo.model.Repository
+import com.findrepo.repogallery.model.item.Repository
 
 data class RepositoryScreenState (
     val isLoading: Boolean = false,

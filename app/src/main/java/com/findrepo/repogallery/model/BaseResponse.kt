@@ -1,4 +1,4 @@
-package com.findrepo.model
+package com.findrepo.repogallery.model
 
 import com.squareup.moshi.Json
 

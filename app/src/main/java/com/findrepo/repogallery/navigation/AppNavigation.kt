@@ -1,10 +1,10 @@
-package com.findrepo.navigation
+package com.findrepo.repogallery.navigation
 
 import androidx.navigation.NavController
-import com.findrepo.model.Repository
-import com.findrepo.navigation.NavGraphArgument.HTML_DATA
-import com.findrepo.navigation.NavGraphArgument.REPOSITORY
-import com.findrepo.navigation.NavGraphArgument.REPO_NAME
+import com.findrepo.repogallery.model.item.Repository
+import com.findrepo.repogallery.navigation.NavGraphArgument.HTML_DATA
+import com.findrepo.repogallery.navigation.NavGraphArgument.REPOSITORY
+import com.findrepo.repogallery.navigation.NavGraphArgument.REPO_NAME
 import com.findrepo.utility.util.parseJSONToString
 
 fun NavController.navigateToRepoDetail(repo: Repository) {

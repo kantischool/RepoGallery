@@ -1,8 +1,8 @@
 package com.findrepo.roomdb
 
 import androidx.room.TypeConverter
-import com.findrepo.model.License
-import com.findrepo.model.Owner
+import com.findrepo.repogallery.model.item.License
+import com.findrepo.repogallery.model.item.Owner
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.findrepo.model.response.ContributorResponse
+import com.findrepo.repogallery.model.response.ContributorResponse
 import com.findrepo.repogallery.R
 import com.findrepo.repogallery.ui.comman.AppNetworkImage
 import com.findrepo.repogallery.ui.comman.AppText

@@ -1,16 +1,14 @@
 package com.findrepo.repogallery.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.findrepo.api.ResponseState
-import com.findrepo.model.Repository
+import com.findrepo.repogallery.api.ResponseState
+import com.findrepo.repogallery.model.item.Repository
 import com.findrepo.repogallery.repository.AppRepository
 import com.findrepo.roomdb.RepoDatabase
 import com.findrepo.state.RepositoryScreenState
 import com.findrepo.state.RepositoryScreenUiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
@@ -22,12 +20,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RepositoryViewModel @Inject constructor(
-    @ApplicationContext private val appContext: Context,
     private val appRepository: AppRepository,
     private val repoDatabase: RepoDatabase
 ) : ViewModel() {
-
-    private val TAG = "RepositoryViewModel"
 
     private val uiState = MutableStateFlow(RepositoryScreenState())
     fun consumableState() = uiState.asStateFlow()
@@ -37,7 +32,7 @@ class RepositoryViewModel @Inject constructor(
     private var isDataLoading: Boolean = false
 
     init {
-        fetchRepository("q")
+        fetchRepository()
     }
 
     fun onEvent(event: RepositoryScreenUiEvent) {
@@ -60,7 +55,7 @@ class RepositoryViewModel @Inject constructor(
                 uiState.update {
                     it.copy(repositories = emptyList())
                 }
-                fetchRepository(uiState.value.query)
+                fetchRepository()
             }
 
             is RepositoryScreenUiEvent.CallApiAgain -> {
@@ -74,7 +69,7 @@ class RepositoryViewModel @Inject constructor(
             is RepositoryScreenUiEvent.NextApiCall -> {
                 page++
                 isDataLoading = true
-                fetchRepository(uiState.value.query)
+                fetchRepository()
             }
 
             is RepositoryScreenUiEvent.DataFromRoomDB -> {
@@ -90,6 +85,8 @@ class RepositoryViewModel @Inject constructor(
             }
 
             is RepositoryScreenUiEvent.NetWorkAvailable -> {
+                isDataLoading = true
+                fetchRepository()
                 uiState.update {
                     it.copy(
                         isNetWorkNotAvailable = false
@@ -99,8 +96,8 @@ class RepositoryViewModel @Inject constructor(
         }
     }
 
-    private fun fetchRepository(query: String) {
-        val queryStr = query.ifEmpty { "Q" }
+    private fun fetchRepository() {
+        val queryStr = uiState.value.query.ifEmpty { "Q" }
         val hashMap: HashMap<String, Any> = hashMapOf(
             "q" to queryStr,
             "page" to page,

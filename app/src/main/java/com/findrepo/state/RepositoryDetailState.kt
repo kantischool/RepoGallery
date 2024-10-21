@@ -1,7 +1,7 @@
 package com.findrepo.state
 
-import com.findrepo.model.Repository
-import com.findrepo.model.response.ContributorResponse
+import com.findrepo.repogallery.model.item.Repository
+import com.findrepo.repogallery.model.response.ContributorResponse
 
 data class RepositoryDetailState(
     val isLoading: Boolean = false,

@@ -1,7 +1,7 @@
-package com.findrepo.api
+package com.findrepo.repogallery.api
 
-import com.findrepo.model.ErrorResponse
-import com.findrepo.model.HeaderResponse
+import com.findrepo.repogallery.model.ErrorResponse
+import com.findrepo.repogallery.model.HeaderResponse
 
 sealed class ResponseState<T>(
     val status: Status? = null,

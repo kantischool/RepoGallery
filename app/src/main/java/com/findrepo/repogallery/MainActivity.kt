@@ -8,15 +8,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.findrepo.navigation.AppNavigationGraph
+import com.findrepo.repogallery.navigation.AppNavigationGraph
 import com.findrepo.repogallery.ui.theme.RepoGalleryTheme
-import com.findrepo.utility.util.ConnectionState
-import com.findrepo.utility.util.connectivityState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,12 +35,5 @@ fun AppEntryPoint(modifier: Modifier) {
         modifier = modifier.fillMaxSize(),
     ) {
         AppNavigationGraph()
-
-        // This will cause re-composition on every network state change
-        val connection by connectivityState()
-        val isConnected = connection === ConnectionState.Connected
-        if (!isConnected) {
-            // no internet
-        }
     }
 }

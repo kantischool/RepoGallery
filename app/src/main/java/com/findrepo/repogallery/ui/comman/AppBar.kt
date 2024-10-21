@@ -2,11 +2,9 @@ package com.findrepo.repogallery.ui.comman
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Badge
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -17,7 +15,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.findrepo.repogallery.R
 import com.findrepo.repogallery.ui.theme.colorBackground
 import com.findrepo.repogallery.ui.theme.colorPrimary
 import com.findrepo.repogallery.ui.theme.colorSecondary
@@ -29,15 +26,9 @@ fun AppTopBar(
     title: String = "",
     titleColor: Color = colorSecondary,
     backgroundColor: Color = colorBackground,
-    notificationCount: Int = 0,
     showNavigationIcon: Boolean = true,
     onNavigationIconClick: () -> Unit = {},
-    onNotificationClick: () -> Unit = {},
-    showNotificationIcon: Boolean = true,
-    showOtherAction: Boolean = false,
-    @DrawableRes otherActionIconResId: Int = 0,
     @DrawableRes navigationIconResId: Int = 0,
-    onOtherActionClick: () -> Unit = {},
     iconColor: Color = colorPrimary,
 ) {
     CenterAlignedTopAppBar(

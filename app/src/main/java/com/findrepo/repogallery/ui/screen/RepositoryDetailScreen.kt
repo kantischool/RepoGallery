@@ -24,8 +24,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.findrepo.model.Repository
-import com.findrepo.model.response.ContributorResponse
+import com.findrepo.repogallery.model.item.Repository
+import com.findrepo.repogallery.model.response.ContributorResponse
 import com.findrepo.repogallery.R
 import com.findrepo.repogallery.ui.comman.AppNetworkImage
 import com.findrepo.repogallery.ui.comman.AppScaffold
@@ -42,7 +42,7 @@ import com.findrepo.state.RepositoryDetailUiEvent
 fun RepositoryDetailScreen(
     repo: () -> Repository? = { null },
     onBack: () -> Unit,
-    onNavigateToWebScreen: (String, String) -> Unit = { s: String, s1: String -> },
+    onNavigateToWebScreen: (String, String) -> Unit = { _: String, _: String -> },
 ) {
     val viewModel = hiltViewModel<RepositoryDetailViewModel>()
     val viewState by viewModel.consumableState().collectAsState()
@@ -65,7 +65,7 @@ fun RepositoryDetailContent(
     repo: () -> Repository?,
     onBack: () -> Unit = {},
     contributors: () -> List<ContributorResponse> = { emptyList() },
-    onLinkClick: (String, String) -> Unit = { s: String, s1: String -> },
+    onLinkClick: (String, String) -> Unit = { _: String, _: String -> },
     snackBarHostState: SnackbarHostState = remember { SnackbarHostState() },
 ) {
     AppScaffold(
@@ -73,7 +73,7 @@ fun RepositoryDetailContent(
         showNavigationIcon = true,
         navigationIconResId = R.drawable.ic_back,
         onNavigationIconClick = onBack,
-        snackbarHostState = snackBarHostState,
+        snackBarHostState = snackBarHostState,
     ) { contentPadding ->
         Column(
             modifier = Modifier

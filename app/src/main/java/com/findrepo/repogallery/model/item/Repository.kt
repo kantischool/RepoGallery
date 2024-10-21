@@ -1,4 +1,4 @@
-package com.findrepo.model
+package com.findrepo.repogallery.model.item
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

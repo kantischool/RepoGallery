@@ -1,7 +1,7 @@
-package com.findrepo.datasource
+package com.findrepo.repogallery.datasource
 
-import com.findrepo.model.response.ContributorResponse
-import com.findrepo.model.response.RepositoryListResponse
+import com.findrepo.repogallery.model.response.ContributorResponse
+import com.findrepo.repogallery.model.response.RepositoryListResponse
 import retrofit2.Response
 
 interface AppDataSource {

@@ -1,4 +1,4 @@
-package com.findrepo.navigation
+package com.findrepo.repogallery.navigation
 
 sealed class Screen(val route: String, val name: String) {
     data object Repository : Screen(route = "repository", name = "Repository")

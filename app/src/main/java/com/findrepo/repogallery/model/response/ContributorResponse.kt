@@ -1,10 +1,10 @@
-package com.findrepo.model
+package com.findrepo.repogallery.model.response
 
 import com.squareup.moshi.Json
 
-data class Owner(
+data class ContributorResponse(
     @Json(name = "login") val login: String? = null,
-    @Json(name = "id") val id: Long? = null,
+    @Json(name = "id") val id: Int? = null,
     @Json(name = "node_id") val nodeId: String? = null,
     @Json(name = "avatar_url") val avatarUrl: String? = null,
     @Json(name = "gravatar_id") val gravatarId: String? = null,
@@ -22,4 +22,5 @@ data class Owner(
     @Json(name = "type") val type: String? = null,
     @Json(name = "user_view_type") val userViewType: String? = null,
     @Json(name = "site_admin") val siteAdmin: Boolean? = null,
+    @Json(name = "contributions") val contributions: Int? = null,
 )

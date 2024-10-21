@@ -1,10 +1,10 @@
-package com.findrepo.api
+package com.findrepo.repogallery.api
 
 import android.content.Context
 import androidx.room.Room
-import com.findrepo.data.AppConstant.BASE_URL
-import com.findrepo.datasource.AppDataSource
-import com.findrepo.datasource.AppDataSourceImpl
+import com.findrepo.repogallery.data.AppConstant.BASE_URL
+import com.findrepo.repogallery.datasource.AppDataSource
+import com.findrepo.repogallery.datasource.AppDataSourceImpl
 import com.findrepo.repogallery.repository.AppRepository
 import com.findrepo.roomdb.RepoDatabase
 import com.squareup.moshi.Moshi

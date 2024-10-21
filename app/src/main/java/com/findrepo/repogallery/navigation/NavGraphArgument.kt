@@ -1,4 +1,4 @@
-package com.findrepo.navigation
+package com.findrepo.repogallery.navigation
 
 object NavGraphArgument {
     const val REPOSITORY = "repository"
