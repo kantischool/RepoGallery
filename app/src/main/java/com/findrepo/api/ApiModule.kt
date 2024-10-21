@@ -1,14 +1,18 @@
 package com.findrepo.api
 
+import android.content.Context
+import androidx.room.Room
 import com.findrepo.data.AppConstant.BASE_URL
 import com.findrepo.datasource.AppDataSource
 import com.findrepo.datasource.AppDataSourceImpl
 import com.findrepo.repogallery.repository.AppRepository
+import com.findrepo.roomdb.RepoDatabase
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -71,4 +75,8 @@ object ApiModule {
         appDataSource: AppDataSource,
         apiRequest: ApiRequest,
     ) = AppRepository(appDataSource, apiRequest)
+
+    @Provides
+    @Singleton
+    fun provideRoomDb(@ApplicationContext context: Context) = Room.databaseBuilder(context.applicationContext,RepoDatabase::class.java, "RepoDatabase").build()
 }

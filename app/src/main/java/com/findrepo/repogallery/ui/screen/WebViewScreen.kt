@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import com.findrepo.repogallery.R
 import com.findrepo.repogallery.ui.comman.AppScaffold
-import com.findrepo.repogallery.ui.theme.colorPrimary
 
 @Composable
 fun WebViewScreen(
@@ -60,7 +59,7 @@ fun WebViewContent(
                 update = {
                     it.loadUrl(url())
                 },
-                modifier = Modifier.fillMaxHeight() // This modifier ensures the WebView fills the entire available space
+                modifier = Modifier.fillMaxHeight()
             )
         }
     }

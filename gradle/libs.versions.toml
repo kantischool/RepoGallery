@@ -28,11 +28,15 @@ kotlinxCoroutinesCore = "1.9.0"
 kotlinxCoroutinesAndroid = "1.9.0"
 # Coil
 coilCompose = "2.7.0"
+# Gson
+gson = "2.11.0"
 # Room DB
 room = "2.6.1"
 # Moshi
 moshiKotlin = "1.15.1"
 converterMoshi = "2.11.0"
+firebaseCrashlyticsBuildtools = "3.0.2"
+constraintlayoutCompose = "1.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -85,9 +89,15 @@ androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 # Coil
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
 
+# Gson
+google-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+
 # Moshi
 moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshiKotlin" }
 converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "converterMoshi" }
+firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version.ref = "firebaseCrashlyticsBuildtools" }
+androidx-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayoutCompose" }
 
 
 [plugins]

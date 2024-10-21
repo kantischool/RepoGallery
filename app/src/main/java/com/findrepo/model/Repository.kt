@@ -1,8 +1,13 @@
 package com.findrepo.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
+@Entity(tableName = "Repositories")
 data class Repository(
+    @PrimaryKey(autoGenerate = true) val autoId: Int = 0,
+
     @Json(name = "id") val id: Double? = null,
     @Json(name = "node_id") val nodeId: String? = null,
     @Json(name = "name") val name: String? = null,
