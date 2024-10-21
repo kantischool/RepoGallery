@@ -51,5 +51,4 @@ fun ContributorItem(
             HorizontalDivider(modifier = Modifier.padding(bottom = 16.dp))
         }
     }
-
 }

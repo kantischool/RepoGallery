@@ -1,12 +1,12 @@
 package com.findrepo.repogallery.ui.screen
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.SnackbarHostState
@@ -41,6 +41,8 @@ import com.findrepo.state.RepositoryDetailUiEvent
 @Composable
 fun RepositoryDetailScreen(
     repo: () -> Repository? = { null },
+    onBack: () -> Unit,
+    onNavigateToWebScreen: (String, String) -> Unit = { s: String, s1: String -> },
 ) {
     val viewModel = hiltViewModel<RepositoryDetailViewModel>()
     val viewState by viewModel.consumableState().collectAsState()
@@ -51,21 +53,26 @@ fun RepositoryDetailScreen(
 
     RepositoryDetailContent(
         repo = { viewState.repo },
+        onBack = onBack,
         contributors = { contributors },
-        onLinkClick = { }
+        onLinkClick = { url, name ->
+            onNavigateToWebScreen(url, name) }
     )
 }
 
 @Composable
 fun RepositoryDetailContent(
     repo: () -> Repository?,
+    onBack: () -> Unit = {},
     contributors: () -> List<ContributorResponse> = { emptyList() },
-    onLinkClick: (String) -> Unit = {},
+    onLinkClick: (String, String) -> Unit = { s: String, s1: String -> },
     snackBarHostState: SnackbarHostState = remember { SnackbarHostState() },
 ) {
     AppScaffold(
+        title = stringResource(R.string.desc_repository_details),
         showNavigationIcon = true,
         navigationIconResId = R.drawable.ic_back,
+        onNavigationIconClick = onBack,
         snackbarHostState = snackBarHostState,
     ) { contentPadding ->
         Column(
@@ -113,7 +120,10 @@ fun RepositoryDetailContent(
 
             AppText(
                 modifier = Modifier
-                    .padding(bottom = 12.dp, top = 12.dp),
+                    .padding(bottom = 12.dp, top = 12.dp)
+                    .clickable {
+                        onLinkClick.invoke(repo()?.htmlUrl.toString(), repo()?.name.toString())
+                    },
                 text = repo()?.htmlUrl.toString(),
                 textDecoration = TextDecoration.Underline,
                 color = colorBlue

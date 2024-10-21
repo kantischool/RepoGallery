@@ -7,9 +7,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.findrepo.model.Repository
+import com.findrepo.navigation.NavGraphArgument.HTML_DATA
 import com.findrepo.navigation.NavGraphArgument.REPOSITORY
+import com.findrepo.navigation.NavGraphArgument.REPO_NAME
 import com.findrepo.repogallery.ui.screen.RepositoryDetailScreen
 import com.findrepo.repogallery.ui.screen.RepositoryScreen
+import com.findrepo.repogallery.ui.screen.WebViewScreen
 import com.findrepo.utility.extention.nullableArgumentType
 import com.findrepo.utility.util.fadeInTransition
 import com.findrepo.utility.util.fadeOutTransition
@@ -48,7 +51,26 @@ fun AppNavigationGraph() {
                 .parseStringToJSON(Repository::class.java)
 
             RepositoryDetailScreen(
-                repo = { repo }
+                repo = { repo },
+                onBack = { navController.navigateUp() },
+                onNavigateToWebScreen = {url, name ->
+                    navController.navigateToWebScreen(url, name)
+                }
+            )
+        }
+
+        composable(
+            route = Screen.WebScreen.buildOptionalArgsRoute(HTML_DATA, REPO_NAME),
+            arguments = listOf(navArgument(HTML_DATA) { nullableArgumentType(NavType.StringType) },
+                navArgument(REPO_NAME) { nullableArgumentType(NavType.StringType) }
+            )
+        ) { backStackEntry ->
+            val url = backStackEntry.arguments?.getString(HTML_DATA)
+            val repoName = backStackEntry.arguments?.getString(REPO_NAME)
+            WebViewScreen(
+                url = { url.toString() },
+                repoName = { repoName.toString() },
+                onBack = { navController.navigateUp() }
             )
         }
     }

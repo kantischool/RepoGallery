@@ -2,7 +2,10 @@ package com.findrepo.navigation
 
 sealed class Screen(val route: String, val name: String) {
     data object Repository : Screen(route = "repository", name = "Repository")
+
     data object RepositoryDetail : Screen(route = "repository_detail", name = "RepositoryDetail")
+
+    data object WebScreen : Screen(route = "web_screen", name = "WebScreen")
 
     fun withOptionalArgs(hashMap: HashMap<String, Any?>) = buildString {
         append(route.plus("?"))
